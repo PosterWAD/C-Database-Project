@@ -134,17 +134,21 @@ int main() {
 
       break;
     case 8:
+    
       break;
     case 9:
       printf("Edytor danych studentów \n");
       edytuj_studenta(baza, rozmiar);
       break;
     case 0:
+      printf("\nBaza została zamknięta.\n");
+      zapisz_baze("baza.dat", baza, rozmiar);
+      zwolnij_pamiec(&baza, &rozmiar);
+
       break;
     default:
       printf("Nieprawidłowy wybór, spróbuj ponownie.\n");
       break;
   } while (wybor != 0);
-
-    return 0;
   }
+}
