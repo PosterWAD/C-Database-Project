@@ -131,7 +131,19 @@ int main() {
       }
       break;
     case 7:
-
+      int wyborPrzydzialu;
+      printf("Wybierz czy chcesz przydzielić studenta do grupy po indeksie (1) czy nazwisku (2): ");
+      scanf("%i", &wyborPrzydzialu);
+      switch(wyborPrzydzialu) {
+        case 1:
+          
+          break;
+        case 2:
+          break;
+        default:
+          printf("Nieprawidłowy wybór przydziału.\n");
+          break;
+      }
       break;
     case 8:
     
