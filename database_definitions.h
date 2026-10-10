@@ -20,4 +20,17 @@ typedef struct {
   float srednia;
 } Student;
 
+// --- FUNKCJE --- //
+void dodaj_studenta(Student **baza, int *ilosc);
+void wypisz_studentow(Student *baza, int ilosc);
+void usun_studenta(Student **baza, int *ilosc);
+void zapisz_do_pliku(Student *baza, int ilosc, const char *nazwa_pliku);
+void sortuj_studentow(Student *baza, int ilosc);
+void znajdz_studenta(Student *baza, int ilosc);
+void przydziel_studenta_do_grupy(Student *baza, int ilosc);
+void usun_studenta_z_grupy(Student *baza, int ilosc);
+void edytuj_studenta(Student *baza, int ilosc);
+
+void free_student_database(Student *baza, int ilosc);
+void wyjdz_i_zapisz(Student *baza, int ilosc);
 #endif // DATABASE_DEFINITIONS_H
