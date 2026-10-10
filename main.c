@@ -26,5 +26,33 @@ int main() {
     printf("----------------------------------------------\n");
     printf("Twój wybór: ");
 
+    scanf("%d", &wybor);
+
+    while (getchar() != '\n')
+      ;
+
+    switch (wybor) {
+    case 1:
+      break;
+    case 2:
+      d break;
+    case 3:
+      break;
+    case 4:
+      break;
+    case 5:
+      break;
+    case 6:
+      break;
+    case 7:
+      break;
+    case 8:
+      break;
+    case 9:
+      break;
+    case 0:
+      break;
+    }
+
     return 0;
   }
