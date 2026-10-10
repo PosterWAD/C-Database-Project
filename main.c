@@ -63,6 +63,23 @@ int main() {
                 }while(wWypisanie != 1 && wWypisanie != 2);        
       break;
     case 3:
+      int wyborUsuwania;
+      if (rozmiar > 0) {
+        printf("Czy chcesz usunąć ostatniego studenta (1) czy wybranego (2)? ");
+        scanf("%i", &wyborUsuwania);
+        if (wyborUsuwania == 1) {
+          usun_ostatniegoStudenta(&baza, &rozmiar);
+        } 
+        else if (wyborUsuwania == 2) {
+          usun_wybranegoStudenta(&baza, &rozmiar);
+        } 
+        else {
+          printf("Nieprawidłowy wybór usuwania.\n");
+        }
+        } 
+        else {
+          printf("\nBaza jest pusta! Nie ma kogo usunąć.\n");
+        } 
       break;
     case 4:
       break;
