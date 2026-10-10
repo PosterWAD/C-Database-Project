@@ -151,3 +151,19 @@ void usun_wybranegoStudenta(Student **baza, int *ilosc) {
         printf("Nie znaleziono studenta z numerem indeksu %d.\n", nr_indeksu);
     }
 }
+
+void zapisz_baze(const char *filename, Student *baza, int ilosc) {
+    FILE *plik = fopen(filename, "wb"); // "wb" = write binary
+    
+    if (plik == NULL) {
+        printf("Błąd: Nie udało się otworzyć pliku do zapisu!\n");
+        return;
+    }
+
+    if (ilosc > 0) {
+        fwrite(baza, sizeof(Student), ilosc, plik);
+    }
+    
+    fclose(plik);
+    printf("Baza danych została pomyślnie zapisana do pliku %s.\n", filename);
+}
