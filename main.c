@@ -1,10 +1,11 @@
-#include "student.h"
+#include "database_definitions.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 int main() {
 
+  Student *baza = NULL;
   int rozmiar = 0;
   int wybor = 0;
 
@@ -22,7 +23,7 @@ int main() {
     printf("8. Usuń studenta z grupy.\n");
     printf("9. Edytuj studenta.\n");
     printf("---------------------------------------------\n");
-    printf("0. Wyjdź\n");
+    printf("0. Wyjdź i zapisz.\n");
     printf("----------------------------------------------\n");
     printf("Twój wybór: ");
 
@@ -35,7 +36,7 @@ int main() {
     case 1:
       break;
     case 2:
-      d break;
+      break;
     case 3:
       break;
     case 4:
