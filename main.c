@@ -101,6 +101,36 @@ int main() {
       }
       break;
     case 6:
+      int wyborZnajdowania;
+      int indexStudenta;
+        printf("Wybierz czy chcesz znaleźć studenta po indeksie (1) czy nazwisku (2): ");
+        scanf("%i", &wyborZnajdowania);
+      if (wyborZnajdowania == 1) {
+        printf("Podaj numer indeksu do znalezienia: ");
+        scanf("%i", &indexStudenta);
+      Student *znajdzStudenta = szukaj_studentaIndex(baza, rozmiar, indexStudenta);
+      if (znajdzStudenta != NULL) {
+        printf("Znaleziono studenta:\n");
+        wypisz_studenta(znajdzStudenta);
+      } 
+      else {
+       printf("Nie znaleziono studenta o podanym numerze indeksu.\n");
+      }
+      } 
+      else if (wyborZnajdowania == 2) {
+      char nazwiskoStudenta[MAX_STR];
+        printf("Podaj nazwisko do znalezienia: ");
+        scanf("%s", nazwiskoStudenta);
+      Student *znajdzStudenta = szukaj_studentaNazwisko(baza, rozmiar, nazwiskoStudenta);
+      if (znajdzStudenta != NULL) {
+        printf("Znaleziono studenta:\n");
+        wypisz_studenta(znajdzStudenta);
+      } else {
+        printf("Nie znaleziono studenta o podanym nazwisku.\n");
+      }
+      } else {
+        printf("Nieprawidłowy wybór wyszukiwania.\n");
+      }
       break;
     case 7:
       break;
