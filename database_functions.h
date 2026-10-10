@@ -194,3 +194,9 @@ void wczytaj_baze(const char *filename, Student **baza, int *ilosc) {
 
     fclose(plik);
 }
+
+void zwolnij_pamiec(Student **baza, int *ilosc){
+    free(*baza);
+    *baza = NULL; 
+    *ilosc = 0;
+}
