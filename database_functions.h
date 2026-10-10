@@ -200,3 +200,14 @@ void zwolnij_pamiec(Student **baza, int *ilosc){
     *baza = NULL; 
     *ilosc = 0;
 }
+
+void sortuj_bazeIndex(Student *baza, int rozmiar){
+    for (int i = 0; i < rozmiar - 1; i++) {
+        for (int j = 0; j < rozmiar - i - 1; j++) {
+            if (baza[j].nr_indeksu > baza[j + 1].nr_indeksu) {
+                Student temp = baza[j];
+                baza[j] = baza[j + 1];
+                baza[j + 1] = temp;
+            }
+        }
+    }
