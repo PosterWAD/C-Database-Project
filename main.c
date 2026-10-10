@@ -141,7 +141,10 @@ int main() {
       break;
     case 0:
       break;
-    }
+    default:
+      printf("Nieprawidłowy wybór, spróbuj ponownie.\n");
+      break;
+  } while (wybor != 0);
 
     return 0;
   }
