@@ -211,3 +211,16 @@ void sortuj_bazeIndex(Student *baza, int rozmiar){
             }
         }
     }
+}
+
+void sortuj_bazeNazwisko(Student *baza, int rozmiar){
+    for (int i = 0; i < rozmiar - 1; i++) {
+        for (int j = 0; j < rozmiar - i - 1; j++) {
+            if (strcmp(baza[j].nazwisko, baza[j + 1].nazwisko) > 0) {
+                Student temp = baza[j];
+                baza[j] = baza[j + 1];
+                baza[j + 1] = temp;
+            }
+        }
+    }
+}    
