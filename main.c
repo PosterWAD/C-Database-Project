@@ -85,6 +85,20 @@ int main() {
       zapisz_baze("baza.dat", baza, rozmiar);
       break;
     case 5:
+      int wyborSortowania;
+      printf("Wybierz czy chcesz sortować po indeksie (1) czy nazwisku (2): ");
+      scanf("%i", &wyborSortowania);
+      if (wyborSortowania == 1) {
+        sortuj_bazeIndex(baza, rozmiar);
+        printf("Studenci zostali posortowani po indeksie.\n");
+      } 
+      else if (wyborSortowania == 2) {
+        sortuj_bazeNazwisko(baza, rozmiar);
+        printf("Studenci zostali posortowani po nazwisku.\n");
+      } 
+      else {
+        printf("Nieprawidłowy wybór sortowania.\n");
+      }
       break;
     case 6:
       break;
