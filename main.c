@@ -34,6 +34,7 @@ int main() {
 
     switch (wybor) {
     case 1:
+      dodaj_studenta(&baza, &rozmiar);
       break;
     case 2:
       break;
