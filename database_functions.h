@@ -69,3 +69,13 @@ void dodaj_studenta(Student **baza, int *ilosc) {
     printf("Student został dodany pomyślnie!\n");
 
 }
+
+void wypisz_studenta(const Student* s)
+{
+    // (*s).imie = s->imie
+    printf("\nImie: %s \n", s->imie);
+    printf("Nazwisko: %s \n", s->nazwisko);
+    printf("Nr indeksu: %d \n", s->nr_indeksu);
+    printf("Kierunek: %s \n", pobierz_nazwe_kierunku(s->kierunek));
+    printf("Srednia ocen: %.3f\n", s->srednia);
+}
