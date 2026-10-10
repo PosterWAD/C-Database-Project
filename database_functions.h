@@ -111,3 +111,12 @@ void wypisz_kierunek(const Student *baza, int rozmiar, Kierunek zKierunku) {
         printf("Brak studentów na danym kierunku");
     }
 }
+
+void usun_ostatniegoStudenta(Student **baza, int *ilosc) {
+    if (*ilosc > 0) {
+        (*ilosc)--; 
+        printf("Student %s %s został usunięty.\n", (*baza)[*ilosc].imie, (*baza)[*ilosc].nazwisko);
+    } else {
+        printf("Baza jest pusta! Nie ma kogo usunąć.\n");
+    }
+}
