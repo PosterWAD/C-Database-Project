@@ -131,10 +131,13 @@ int main() {
       }
       break;
     case 7:
+
       break;
     case 8:
       break;
     case 9:
+      printf("Edytor danych studentów \n");
+      edytuj_studenta(baza, rozmiar);
       break;
     case 0:
       break;
