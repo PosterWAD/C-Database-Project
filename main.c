@@ -82,6 +82,7 @@ int main() {
         } 
       break;
     case 4:
+      zapisz_baze("baza.dat", baza, rozmiar);
       break;
     case 5:
       break;
