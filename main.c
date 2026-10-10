@@ -38,29 +38,27 @@ int main() {
       break;
     case 2:
       int wWypisanie;
-                printf("Wybierz sposób wypisania studentów: \n");
-                printf("1. Cała baza studentów \n");
-                printf("2. Studenci z poszczegolnego kierunku\n");
-                do{
-                    printf("Wybór(1 lub 2): ");
-                    scanf(" %i", &wWypisanie);
-
-                    if(wWypisanie == 1){
-                        printf("\n--- LISTA STUDENTÓW ---\n");
-                        wypisz_cala_baze(baza, rozmiar);
-                    }
-                    else if(wWypisanie == 2){
-                        int wybor_kierunku;
-                        printf("Podaj kierunek (0-Informatyka, 1-Matematyka, 2-Fizyka, 3-Elektronika, 4-Elektrotechnika): ");
-                        scanf("%i", &wybor_kierunku);
-                        while(getchar() != '\n');
-
-                        wypisz_kierunek(baza, rozmiar, (Kierunek)wybor_kierunku); //pstatni argument za pomocą rzutowania na enum
-                    }
-                    else{
-                        printf("Błąd wyboru - spróbuj jeszcze raz!!!\n");
-                    }
-                }while(wWypisanie != 1 && wWypisanie != 2);        
+        printf("Wybierz sposób wypisania studentów: \n");
+        printf("1. Cała baza studentów \n");
+        printf("2. Studenci z poszczegolnego kierunku\n");
+      do{
+        printf("Wybór(1 lub 2): ");
+        scanf(" %i", &wWypisanie);
+      if(wWypisanie == 1){
+        printf("\n--- LISTA STUDENTÓW ---\n");
+        wypisz_cala_baze(baza, rozmiar);
+      }
+      else if(wWypisanie == 2){
+        int wybor_kierunku;
+        printf("Podaj kierunek (0-Informatyka, 1-Matematyka, 2-Fizyka, 3-Elektronika, 4-Elektrotechnika): ");
+        scanf("%i", &wybor_kierunku);
+        while(getchar() != '\n');
+        wypisz_kierunek(baza, rozmiar, (Kierunek)wybor_kierunku); //pstatni argument za pomocą rzutowania na enum
+      }
+      else{
+        printf("Błąd wyboru - spróbuj jeszcze raz!!!\n");
+      }
+      }while(wWypisanie != 1 && wWypisanie != 2);        
       break;
     case 3:
       int wyborUsuwania;
