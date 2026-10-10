@@ -29,8 +29,14 @@ void sortuj_studentow(Student *baza, int ilosc);
 void znajdz_studenta(Student *baza, int ilosc);
 void przydziel_studenta_do_grupy(Student *baza, int ilosc);
 void usun_studenta_z_grupy(Student *baza, int ilosc);
+
+//void znajdz_studenta
+Student *znajdz_studenta_po_indexie(Student *baza, int ilosc, int nr_indeksu);
+Student *znajdz_studenta_po_nazwisku(Student *baza, int ilosc, const char *nazwisko);
+
 void edytuj_studenta(Student *baza, int ilosc);
 
-void free_student_database(Student *baza, int ilosc);
 void wyjdz_i_zapisz(Student *baza, int ilosc);
+
+
 #endif // DATABASE_DEFINITIONS_H
