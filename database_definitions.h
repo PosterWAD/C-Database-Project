@@ -21,22 +21,20 @@ typedef struct {
 } Student;
 
 // --- FUNKCJE --- //
-void dodaj_studenta(Student **baza, int *ilosc);
-void wypisz_studentow(Student *baza, int ilosc);
-void usun_studenta(Student **baza, int *ilosc);
-void zapisz_do_pliku(Student *baza, int ilosc, const char *nazwa_pliku);
-void sortuj_studentow(Student *baza, int ilosc);
-void znajdz_studenta(Student *baza, int ilosc);
-void przydziel_studenta_do_grupy(Student *baza, int ilosc);
-void usun_studenta_z_grupy(Student *baza, int ilosc);
+void dodaj_studenta(Student **baza, int *ilosc); 
+void zapisz_baze(const char *filename, Student *baza, int ilosc);
+void wczytaj_baze(const char *filename, Student **baza, int *ilosc);
+void zwolnij_pamiec(Student **baza, int *ilosc);
+void wypisz_studenta(const Student* s);
+void wypisz_cala_baze(const Student *baza, int rozmiar);
+void sortuj_bazeIndex(Student *baza, int rozmiar);
+void sortuj_bazeNazwisko(Student *baza, int rozmiar);
+void wypisz_kierunek(const Student *baza, int rozmiar, Kierunek zKierunku);
+void usun_ostatniegoStudenta(Student **baza, int *ilosc);
+void usun_wybranegoStudenta(Student **baza, int *ilosc);
 
-//void znajdz_studenta
-Student *znajdz_studenta_po_indexie(Student *baza, int ilosc, int nr_indeksu);
-Student *znajdz_studenta_po_nazwisku(Student *baza, int ilosc, const char *nazwisko);
+void edytuj_studenta(Student *baza, int rozmiar);
 
-void edytuj_studenta(Student *baza, int ilosc);
-
-void wyjdz_i_zapisz(Student *baza, int ilosc);
-
-
+Student* znajdz_studenta_po_indexie(Student *baza, int rozmiar, int nr_indeksu);
+Student* znajdz_studenta_po_nazwisku(Student *baza, int rozmiar, const char* nazwisko);
 #endif // DATABASE_DEFINITIONS_H
