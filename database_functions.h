@@ -233,3 +233,128 @@ Student* znajdz_studenta_po_indexie(Student *baza, int rozmiar, int nr_indeksu) 
     }
     return NULL;
 }
+
+Student* znajdz_studenta_po_nazwisku(Student *baza, int rozmiar, char* nazwisko) {
+    for (int i = 0; i < rozmiar; i++) {
+        if (strcmp(baza[i].nazwisko, nazwisko) == 0) {
+            return &baza[i];
+        }
+    }
+    return NULL;
+}
+
+void edytuj_studenta(Student *baza, int rozmiar){
+
+    int wybor_Wyszkiwania;
+    Student *wyszukany_Student = NULL;
+    int index;
+
+
+    if (baza == NULL || rozmiar == 0) {
+        printf("\nBrak danych!!! Wprowadz pierwsze dane!\n");
+        return; 
+    }
+    printf("Podaj w jaki sposób chcesz znaleźć studenta do edycji: \n");
+    printf("1. Po numerze indeksu\n");
+    printf("2. Po nazwisku \n");
+    printf("0. Wyjdź\n");
+    do{
+        printf("Wybór: ");
+        scanf(" %i", &wybor_Wyszkiwania);
+
+        if(wybor_Wyszkiwania == 1){
+            printf("Podaj nr indeksu: ");
+            scanf(" %i", &index);
+            getchar();
+            wyszukany_Student = znajdz_studenta_po_indexie(baza, rozmiar, index);
+        }
+        else if(wybor_Wyszkiwania == 2){
+            char nazwisko[MAX_STR];
+            printf("Podaj nazwisko: ");
+            scanf(" %s", nazwisko);
+            getchar();
+
+            int ile_stud = 0;
+            Student *pkt_startu = baza;
+            int rozmiar_do_konca = rozmiar;
+
+            printf("Znalezieni studenci o takim nazwisku: \n");
+
+            while(rozmiar_do_konca > 0){
+                Student *tymczasowy =  znajdz_studenta_po_nazwisku(pkt_startu, rozmiar_do_konca, nazwisko);
+
+                if(tymczasowy == NULL){
+                    break;
+                }
+
+                wypisz_studenta(tymczasowy);
+                ile_stud++;
+
+                /*
+                Szukamy adres studenta i wykonujemy przejscie tak, aby szukać w następnej
+                iteracji bez uwzglednienia znalezionego w (aktualnej iteracji) studenta
+                */
+                int pkt_przejscia = (tymczasowy - pkt_startu) + 1; //adres tymczasoewgo - pkt startu bazy
+
+                pkt_startu = pkt_startu + pkt_przejscia; //zmieniony pkt startu tak aby zaczac od adresu następnego od znalezionego
+
+            }
+            //Sprawdzenie czy w ogole istnieje jakikolwiek student z wprowadzonym nazwikiem
+            if(ile_stud == 0){
+                printf("\nNie znaleziono studenta z takim nazwiskiem\n");
+                return ;
+            }
+            //Obsluga po znalezieu studentow (jednego lub wielu)
+            else if(ile_stud >= 1){
+                printf("\nZnaleziono studenta/ów z takim nazwiskiem !!!\nKtórego chcesz zmodyfikować?\n");              
+                printf("Podaj nr indeksu z listy: ");
+                scanf(" %i", &index);
+                getchar();
+                wyszukany_Student = znajdz_studenta_po_indexie(baza, rozmiar, index);
+            }
+
+        }
+        else if(wybor_Wyszkiwania == 0){
+            return ;
+        }
+        else{
+            printf("Błąd! Wprowadź poprawny wybór jeszcze raz ");
+        }
+    }while(wybor_Wyszkiwania != 1 && wybor_Wyszkiwania != 2);
+    printf("Student którego dane będą edytowane: \n");
+    printf("-------------------------------");
+    wypisz_studenta(wyszukany_Student);
+    printf("-------------------------------\n");
+
+    
+    //Pola edycji -> po znalezionu konkretnego stidenta bedziemy pytac o to co chcemy edytowac
+    //Korzystamy z zmiennej, która była używana do wyboru w jaki sposob mamy znalezc studenta do edycji
+    wybor_Wyszkiwania = 0;
+    printf("Wybierz co chcesz edytować\n");
+    printf("1. Średnia ocen \n");
+    printf("2. Kierunek \n");
+    do{
+        printf("Wybór: ");
+        scanf(" %i", &wybor_Wyszkiwania);
+        getchar();
+
+        if(wybor_Wyszkiwania == 1){
+            printf("Podaj nowa średnią :" );
+            scanf(" %f", &wyszukany_Student->srednia);
+        }
+        else if(wybor_Wyszkiwania == 2){
+            printf("Podaj nowy kierunek studenta: ");
+        
+        }
+        else{
+            printf("Błąd! Wprowadź poprawny wybór jeszcze raz ");
+        }
+    }while(wybor_Wyszkiwania != 1 && wybor_Wyszkiwania != 2);
+
+    printf("\n\nStudent po edycji dancyh: \n");
+    printf("-------------------------------");
+    wypisz_studenta(wyszukany_Student);
+    printf("-------------------------------\n");
+
+
+}
