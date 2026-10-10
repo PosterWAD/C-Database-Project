@@ -224,3 +224,12 @@ void sortuj_bazeNazwisko(Student *baza, int rozmiar){
         }
     }
 }    
+
+Student* znajdz_studenta_po_indexie(Student *baza, int rozmiar, int nr_indeksu) {
+    for (int i = 0; i < rozmiar; i++) {
+        if (baza[i].nr_indeksu == nr_indeksu) {
+            return &baza[i];
+        }
+    }
+    return NULL;
+}
