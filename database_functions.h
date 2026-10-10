@@ -79,3 +79,16 @@ void wypisz_studenta(const Student* s)
     printf("Kierunek: %s \n", pobierz_nazwe_kierunku(s->kierunek));
     printf("Srednia ocen: %.3f\n", s->srednia);
 }
+
+void wypisz_cala_baze(const Student *baza, int rozmiar) {
+    if (baza == NULL || rozmiar == 0) {
+        printf("Baza jest obecnie pusta. Dodaj studentów, aby ich zobaczyć!\n");
+        return;
+    }
+
+    for (int i = 0; i < rozmiar; i++) {
+        printf("\nStudent %d z %d:", i + 1, rozmiar);
+        wypisz_studenta(&baza[i]);
+    }
+}
+
