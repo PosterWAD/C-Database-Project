@@ -167,3 +167,30 @@ void zapisz_baze(const char *filename, Student *baza, int ilosc) {
     fclose(plik);
     printf("Baza danych została pomyślnie zapisana do pliku %s.\n", filename);
 }
+
+void wczytaj_baze(const char *filename, Student **baza, int *ilosc) {
+    FILE *plik = fopen(filename, "rb"); // "rb" = read binary
+    
+    if (plik == NULL) {
+        printf("Brak pliku bazy danych. Tworzę nową, pustą bazę.\n");
+        *baza = NULL;
+        *ilosc = 0;
+        return;
+    }
+
+    fseek(plik, 0, SEEK_END);
+    long rozmiar_pliku = ftell(plik);
+    rewind(plik);
+
+    *ilosc = rozmiar_pliku / sizeof(Student);
+
+    if (*ilosc > 0) {
+        *baza = malloc(*ilosc * sizeof(Student));
+        fread(*baza, sizeof(Student), *ilosc, plik);
+        printf("Pomyślnie wczytano %d studentów z bazy.\n", *ilosc);
+    } else {
+        *baza = NULL;
+    }
+
+    fclose(plik);
+}
